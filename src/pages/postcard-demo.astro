@@ -1,0 +1,43 @@
+---
+// src/pages/postcard-demo.astro
+
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PostCard from '../components/PostCard.astro';
+
+// A little demo data for our card
+const demoPost = {
+  title: 'Introducing PostCard',
+  date: 'July 25, 2025',
+  excerpt: 'This is a quick demo of the PostCard component standing alone on its own page.',
+  url: '/blog/introducing-postcard/',
+  image: { src: '/images/demo-hero.jpg', alt: 'Demo hero image' },
+};
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title="PostCard Demo – {{SITE_TITLE}}"
+      description="A standalone preview of the PostCard component"
+    />
+  </head>
+  <body>
+    <Header />
+
+    <main style="padding: var(--spacing); max-width: var(--max-content-width); margin: auto;">
+      <h1>PostCard Component Demo</h1>
+
+      <PostCard
+        title={demoPost.title}
+        date={demoPost.date}
+        excerpt={demoPost.excerpt}
+        url={demoPost.url}
+        image={demoPost.image}
+      />
+    </main>
+
+    <Footer />
+  </body>
+</html>
